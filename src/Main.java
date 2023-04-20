@@ -120,12 +120,6 @@ public class Main {
             }else {
                 System.out.println(num2 + "は配列の" + (result9 + 1) + "番目にあります。");
             }
-
-
         }
-
-
-
-
     }
 }

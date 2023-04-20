@@ -107,18 +107,24 @@ public class MethodPractice {
         }
     }
 
-    public static int getIndex(int[] array, int low, int high, int b){
-        var len = array.length;
+    public static int getIndex(int[] array, int low, int high, int target){
         int l = (low + high)/2;
-        if(array[low] != b || array[high] != b){
+//        if(array[low] != b || array[high] != b){
+//            return -1;
+//        }
+
+        if(array[l] == target){
+            return l;
+        }else if(array[l] > target){
+            if(low == high || high == -1) {
+                return -1;
+            }
+            return getIndex(array, low, l-1, target);
+        }else{
+            if(low == high || low > high) {
             return -1;
         }
-        if(array[l] == b){
-            return l;
-        }else if(array[l] > b){
-            return getIndex(array, low, l-1, b);
-        }else{
-            return getIndex(array, l+1, high, b);
+            return getIndex(array, l+1, high, target);
         }
     }
 
